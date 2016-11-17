@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		{% load staticfiles %}
+		<title>Courses</title>
+		<link rel="stylesheet" type="text/css" href="{% static 'courseapp/css/style.css' %}">
+	</head>
+		<body>
+
+			<div class="container">
+					<div class="courseform">
+							<h2>Add a new course:</h2>
+							<form action="/create" method='post'>
+								{% csrf_token %}
+								<p><label for="name">Name:</label>
+								<input type="text" id="name" name="name" required></p>
+								<br>
+								<br>
+
+								<label for="description">Description:</label>
+								<p><textarea id="description" name="description" cols="40" rows="10"></textarea>
+								<input type="submit" value="Add"></p>
+							</form>
+					</div>
+			</div>
+
+
+			<hr>
+
+
+
+				<h3>Courses</h3>
+
+				<table id="courses-table">
+					<tr>
+						<td class="table-heading">--Course Name--</td>
+						<td class="table-heading">--Description--</td>
+						<td class="table-heading">--Date Added--</td>
+						<td class="table-heading">--Actions--</td>
+					</tr>
+					{% for course in courses  %}
+					<tr>
+						<td class="table-data">{{course.name}}</td>
+						<td class="table-data">{{course.description}}</td>
+						<td class="table-data">{{course.created_at}}</td>
+						<td class="table-data">	
+							<form action="/destroy/{{course.id}}"><input type="submit" id="remove" value="remove"></form>
+						</td>
+					</tr>
+						{% endfor %}
+				</table>
+
+
+		</body>
+</html>

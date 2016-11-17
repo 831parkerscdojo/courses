@@ -1,0 +1,25 @@
+*{
+	padding: 0px;
+	margin: 0px;
+}
+
+.course-form{
+	display: block;
+}
+
+.courses-table{
+	padding: 10px;
+	position: relative;
+	right: 100px;
+}
+
+.table-data{
+	padding: 7px;
+	border: 1px solid black;
+	/*white-space: nowrap;*/
+}
+
+.table-heading{
+	padding-right: 10px;
+	border: 2px solid black;
+}
